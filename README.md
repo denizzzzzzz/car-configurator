@@ -1,0 +1,1 @@
+A TypeScrip exercise project to learn working with interfaces/props/classes/context.
