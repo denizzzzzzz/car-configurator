@@ -6,6 +6,7 @@ import { AbstractCar } from './models';
 import { useState } from 'react';
 import './App.css';
 import CarColorForm from './components/CarColorForm';
+import CarDoorsForm from './components/CarDoorsForm';
 
 interface ContextType {
   car?: AbstractCar;
@@ -23,8 +24,9 @@ function App() {
         <CarsContext.Provider value={{ data, setData }}>
           <Routes>
             <Route path="/" element={<CarTypeForm />} />
-            <Route path="/selecteer-motorblok" element={<CarEngineForm />} />
-            <Route path="/selecteer-kleur" element={<CarColorForm />} />
+            <Route path="/select-engine" element={<CarEngineForm />} />
+            <Route path="/select-color" element={<CarColorForm />} />
+            <Route path="/select-doors" element={<CarDoorsForm />} />
           </Routes>
         </CarsContext.Provider>
       </BrowserRouter>

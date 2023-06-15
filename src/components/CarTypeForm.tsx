@@ -6,35 +6,35 @@ const CarTypeForm = () => {
   return (
     <div>
       <div className='header'>
-        <h1>Welkom bij de Auto Configurator!!</h1>
+        <h1>Configure your <span className='text-[#00a8e8]'>dream</span>  car</h1>
       </div>
       <div className='sub-header'>
-        <h2>Wat voor een auto zou u willen configureren?</h2>
+        <h2>Choose your car</h2>
       </div>
       <div className='options-container'>
-        <Link to="/selecteer-motorblok">
+        <Link to="select-engine">
           <button>
-            Normaal <FontAwesomeIcon icon={faCar} />
+            Regular <FontAwesomeIcon icon={faCar} />
           </button>
         </Link>
-        <Link to="/selecteer-motorblok">
+        <Link to="select-engine">
           <button>
-            Sporty <FontAwesomeIcon icon={faFlagCheckered} />
+            Sports <FontAwesomeIcon icon={faFlagCheckered} />
           </button>
         </Link>
-        <Link to="/selecteer-motorblok">
-          <button>
-            Chauffeur/Luxe <FontAwesomeIcon icon={faDollarSign} />
+        <Link to="select-engine">
+          <button className=''>
+            Luxurious <FontAwesomeIcon icon={faDollarSign} />
           </button>
         </Link>
-        <Link to="/selecteer-motorblok">
+        <Link to="select-engine">
           <button>
             Truck <FontAwesomeIcon icon={faTruckPickup} />
           </button>
         </Link>
-        <Link to="/selecteer-motorblok">
+        <Link to="select-engine">
           <button>
-            Familie <FontAwesomeIcon icon={faPeopleRoof} />
+            Family <FontAwesomeIcon icon={faPeopleRoof} />
           </button>
         </Link>
       </div>
