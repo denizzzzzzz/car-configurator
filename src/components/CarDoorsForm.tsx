@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faCar, faCircle, faArrowRight, faHouse, faBackward, faForward, faBackspace, faChevronLeft, faCaretLeft, faCaretRight, faGasPump, faDoorOpen, faLock, faRoadLock, faUserLock, faHouseLock, faBridgeLock, faSchoolLock, faLockOpen, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCircle, faHouse, faCaretLeft, faCaretRight, faDoorOpen, faLock, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 export const CarDoorsForm = () => {
@@ -8,17 +8,18 @@ export const CarDoorsForm = () => {
             <div className='engine-type'>
                 <div className='header'>
                     <Link to="/"><h3><FontAwesomeIcon icon={faHouse} /></h3></Link>
+                    <div className='progress'>
+                        <FontAwesomeIcon className="active" icon={faCircle} />
+                        <FontAwesomeIcon className="active" icon={faCircle} />
+                        <FontAwesomeIcon className="active" icon={faCircle} />
+                        <FontAwesomeIcon className="icon" icon={faCircle} />
+                        <FontAwesomeIcon className="icon" icon={faCircle} />
+                        <FontAwesomeIcon className="icon" icon={faCircle} />
+                        <FontAwesomeIcon className="icon" icon={faCircle} />
+                    </div>
                 </div>
-                <div className='progress'>
-                    <FontAwesomeIcon className="active" icon={faCircle} />
-                    <FontAwesomeIcon icon={faCircle} />
-                    <FontAwesomeIcon icon={faCircle} />
-                    <FontAwesomeIcon icon={faCircle} />
-                    <FontAwesomeIcon icon={faCircle} />
-                    <FontAwesomeIcon icon={faCircle} />
-                    <FontAwesomeIcon icon={faCircle} />
-                </div>
-                <h1  className='step-title'><FontAwesomeIcon icon={faDoorOpen} />DOORS</h1>
+
+                <h1  ><FontAwesomeIcon icon={faDoorOpen} />DOORS</h1>
                 <div className='engine-options'>
                     <div className='input'>
                         <h3>ScissorDoors</h3>
@@ -65,7 +66,7 @@ export const CarDoorsForm = () => {
                 </div>
                 <div>
                     <Link to="/select-color"><button className='navButton'><FontAwesomeIcon icon={faCaretLeft} /></button></Link>
-                    <Link to="/select-color"><button className='navButton'><FontAwesomeIcon icon={faCaretRight} /></button></Link>
+                    <Link to="/select-windows"><button className='navButton'><FontAwesomeIcon icon={faCaretRight} /></button></Link>
                 </div>
             </div>
         </div >

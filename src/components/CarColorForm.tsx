@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faCar, faCircle, faArrowRight, faHouse, faBackward, faForward, faBackspace, faChevronLeft, faCaretLeft, faCaretRight, faPalette } from '@fortawesome/free-solid-svg-icons';
+import { faCircle, faHouse, faCaretLeft, faCaretRight, faPalette } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 export const CarColorForm = () => {
@@ -8,17 +8,18 @@ export const CarColorForm = () => {
             <div className='engine-type'>
                 <div className='header'>
                     <Link to="/"><h3><FontAwesomeIcon icon={faHouse} /></h3></Link>
+                    <div className='progress'>
+                        <FontAwesomeIcon className="active" icon={faCircle} />
+                        <FontAwesomeIcon className="active" icon={faCircle} />
+                        <FontAwesomeIcon className="icon" icon={faCircle} />
+                        <FontAwesomeIcon className="icon" icon={faCircle} />
+                        <FontAwesomeIcon className="icon" icon={faCircle} />
+                        <FontAwesomeIcon className="icon" icon={faCircle} />
+                        <FontAwesomeIcon className="icon" icon={faCircle} />
+                    </div>
                 </div>
-                <div className='progress'>
-                    <FontAwesomeIcon className="active" icon={faCircle} />
-                    <FontAwesomeIcon className="active" icon={faCircle} />
-                    <FontAwesomeIcon icon={faCircle} />
-                    <FontAwesomeIcon icon={faCircle} />
-                    <FontAwesomeIcon icon={faCircle} />
-                    <FontAwesomeIcon icon={faCircle} />
-                    <FontAwesomeIcon icon={faCircle} />
-                </div>
-                <h1><FontAwesomeIcon icon={faPalette} /> Choose your color</h1>
+
+                <h1><FontAwesomeIcon icon={faPalette} /> Color</h1>
                 <div className='options-colors'>
                     <div className='input-colors'>
                         <h3 className='bg-[#F2545B] text-white'>Indian red</h3>

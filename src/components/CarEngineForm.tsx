@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faCar, faCircle, faArrowRight, faHouse, faBackward, faForward, faBackspace, faChevronLeft, faCaretLeft, faCaretRight, faGasPump } from '@fortawesome/free-solid-svg-icons';
+import { faCircle, faHouse, faCaretLeft, faCaretRight, faGasPump } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 export const CarEngineForm = () => {
@@ -8,16 +8,17 @@ export const CarEngineForm = () => {
             <div className='engine-type'>
                 <div className='header'>
                     <Link to="/"><h3><FontAwesomeIcon icon={faHouse} /></h3></Link>
+                    <div className='progress'>
+                        <FontAwesomeIcon className="active" icon={faCircle} />
+                        <FontAwesomeIcon className="icon" icon={faCircle} />
+                        <FontAwesomeIcon className="icon" icon={faCircle} />
+                        <FontAwesomeIcon className="icon" icon={faCircle} />
+                        <FontAwesomeIcon className="icon" icon={faCircle} />
+                        <FontAwesomeIcon className="icon" icon={faCircle} />
+                        <FontAwesomeIcon className="icon" icon={faCircle} />
+                    </div>
                 </div>
-                <div className='progress'>
-                    <FontAwesomeIcon className="active" icon={faCircle} />
-                    <FontAwesomeIcon icon={faCircle} />
-                    <FontAwesomeIcon icon={faCircle} />
-                    <FontAwesomeIcon icon={faCircle} />
-                    <FontAwesomeIcon icon={faCircle} />
-                    <FontAwesomeIcon icon={faCircle} />
-                    <FontAwesomeIcon icon={faCircle} />
-                </div>
+
                 <h1><FontAwesomeIcon icon={faGasPump} /> Engine</h1>
                 <div className='engine-options'>
                     <div className='input'>
