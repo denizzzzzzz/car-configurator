@@ -1,16 +1,21 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCar, faDollarSign, faFlagCheckered, faPeopleRoof, faTruckPickup } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { AbstractCar, FamilyCar } from '../models';
 import { CarsContext } from '../CarsContext';
+import { useContext } from 'react'; 
 
-const context: CarsContext = {
-    car: undefined
-}
+
 const CarTypeForm = () => {
-  const handleFamilyCar = ()=> {
-    context.car = new FamilyCar();
-  }
+  const { data, setData } = useContext(CarsContext);
+
+  const handleFamilyCar = () => {
+    setData({ ...data, isFamilyCar: true });
+  };
+
+  const handleSportsCar = () => {
+    setData({ ...data, isSportsCar: true });
+  };
+
   return (
     <div>
       <div className='header'>
@@ -18,12 +23,12 @@ const CarTypeForm = () => {
       </div>
       <div className='options-container'>
         <Link to="select-engine">
-          <button >
+          <button>
             Regular <FontAwesomeIcon icon={faCar} />
           </button>
         </Link>
         <Link to="select-engine">
-          <button>
+          <button onClick={handleSportsCar}>
             Sports <FontAwesomeIcon icon={faFlagCheckered} />
           </button>
         </Link>
@@ -47,4 +52,4 @@ const CarTypeForm = () => {
   )
 }
 
-export default CarTypeForm
+export default CarTypeForm;

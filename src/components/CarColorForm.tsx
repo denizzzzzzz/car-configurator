@@ -1,13 +1,27 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faHouse, faCaretLeft, faCaretRight, faPalette } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { CarColorNormal, colorMapNormal, CarColorSports, colorMapSports } from '../models';
+import { useContext } from 'react';
+import { CarsContext } from '../CarsContext';
 
-export const CarColorForm = () => {
+const NormalCarColor = {
+    carColor: colorMapNormal,
+};
+const SportsCarColor = {
+    carColor: colorMapSports,
+};
+
+const CarColorForm = () => {
+    const { isFamilyCar, isSportsCar } = useContext(CarsContext);
+
     return (
         <div>
             <div className='engine-type'>
                 <div className='header'>
-                    <Link to="/"><h3><FontAwesomeIcon icon={faHouse} /></h3></Link>
+                    <Link to="/">
+                        <h3><FontAwesomeIcon icon={faHouse} /></h3>
+                    </Link>
                     <div className='progress'>
                         <FontAwesomeIcon className="active" icon={faCircle} />
                         <FontAwesomeIcon className="active" icon={faCircle} />
@@ -18,40 +32,44 @@ export const CarColorForm = () => {
                         <FontAwesomeIcon className="icon" icon={faCircle} />
                     </div>
                 </div>
+            </div>
+            <div>
+                <h1 className='title'><FontAwesomeIcon icon={faPalette} /> Color</h1>
+                {isFamilyCar ? (
+                    <div>
+                        {Object.values(CarColorNormal).map((color: CarColorNormal) => {
+                            const colorInfo = NormalCarColor.carColor[color];
+                            return (
+                                <div className='input-colors' key={color}>
+                                    <h3 style={{ backgroundColor: colorInfo.hex, color: colorInfo.color }} className='text-white'>{colorInfo.name}</h3>
+                                </div>
+                            );
+                        })}
+                    </div>
+                ) : (""
 
-                <h1><FontAwesomeIcon icon={faPalette} /> Color</h1>
-                <div className='options-colors'>
-                    <div className='input-colors'>
-                        <h3 className='bg-[#F2545B] text-white'>Indian red</h3>
+                )}
+                {isSportsCar ? (
+                    <div>
+                        {Object.values(CarColorSports).map((color: CarColorSports) => {
+                            const colorInfo = SportsCarColor.carColor[color];
+                            return (
+                                <div className='input-colors' key={color}>
+                                    <h3 style={{ backgroundColor: colorInfo.hex, color: colorInfo.color }} className='text-white'>{colorInfo.name}</h3>
+                                </div>
+                            );
+                        })}
                     </div>
-                    <div className='input-colors'>
-                        <h3 className='bg-[#19323C] text-white'>Gummental</h3>
-                    </div>
-                    <div className='input-colors'>
-                        <h3 className='bg-[#F3F7F0]'>Mint cream</h3>
-                    </div>
-                    <div className='input-colors'>
-                        <h3 className='bg-black text-white'>Zwart</h3>
-                    </div>
-                    <div className='input-colors'>
-                        <h3 className='bg-[#3626A7] text-white'>Zaffre</h3>
-                    </div>
-                    <div className='input-colors'>
-                        <h3 className='bg-[#9ED8DB] text-black'>Non Photo Bleu</h3>
-                    </div>
-                    <div className='input-colors'>
-                        <h3 className='bg-[#467599] text-white'>UCLA Blue</h3>
-                    </div>
-                    <div className='input-colors'>
-                        <h3 className='bg-[#0D0106] text-white'>Licorice</h3>
-                    </div>
-                </div>
+                ) : (""
+
+                )}
                 <div>
                     <Link to="/select-engine"><button className='navButton'><FontAwesomeIcon icon={faCaretLeft} /></button></Link>
                     <Link to="/select-doors"><button className='navButton'><FontAwesomeIcon icon={faCaretRight} /></button></Link>
                 </div>
             </div>
-        </div >
-    )
-}
+        </div>
+    );
+};
+
 export default CarColorForm;

@@ -24,7 +24,6 @@ a{
   margin: 40px;
   color: white;
 }
-
 button {
   background-color: white;
   color: black;
@@ -81,7 +80,8 @@ button:hover,
 h1{
   font-size: 42px;
   color: white;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 700px;
   border-radius: 70px;
   border-bottom:solid 2px white;
@@ -115,4 +115,8 @@ margin: 20px 0px;
   color: white;
   padding: 4px 16px;
   color: black;
+  margin-top: 20px;
+}
+.title {
+margin-bottom: 40px;
 }

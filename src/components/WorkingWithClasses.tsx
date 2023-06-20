@@ -1,4 +1,4 @@
- import {AbstractCar, AbstractEngine, DieselEngine, FamilyCar} from '../models/index';
+ import {AbstractCar, AbstractEngine, FamilyCar} from '../models/index';
 
 // /*
 
