@@ -13,7 +13,9 @@ const SportsCarColor = {
 };
 
 const CarColorForm = () => {
-    const { isFamilyCar, isSportsCar } = useContext(CarsContext);
+    const { data, setData } = useContext(CarsContext);
+    const isFamilyCar = data?.isFamilyCar;
+    const isSportsCar = data?.isSportsCar;
 
     return (
         <div>

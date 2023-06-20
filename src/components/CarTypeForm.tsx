@@ -2,18 +2,63 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCar, faDollarSign, faFlagCheckered, faPeopleRoof, faTruckPickup } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { CarsContext } from '../CarsContext';
-import { useContext } from 'react'; 
+import { useContext } from 'react';
 
 
 const CarTypeForm = () => {
   const { data, setData } = useContext(CarsContext);
 
+  const handleNormalCar = () => {
+    setData({
+      ...data,
+      isNormalCar: true,
+      isFamilyCar:false,
+      isSportsCar:false,
+      isLuxeCar:false,
+      isTruck:false
+    });
+  };
+
   const handleFamilyCar = () => {
-    setData({ ...data, isFamilyCar: true });
+    setData({
+      ...data,
+      isFamilyCar:true,
+      isNormalCar: false,
+      isSportsCar:false,
+      isLuxeCar:false,
+      isTruck:false
+    });
   };
 
   const handleSportsCar = () => {
-    setData({ ...data, isSportsCar: true });
+    setData({
+      ...data,
+      isSportsCar:true,
+      isFamilyCar:false,
+      isNormalCar: false,
+      isLuxeCar:false,
+      isTruck:false
+    });
+  };
+  const handleLuxeCar = () => {
+    setData({
+      ...data,
+      isLuxeCar:true,
+      isSportsCar:false,
+      isFamilyCar:false,
+      isNormalCar: false,
+      isTruck:false
+    });
+  };
+  const handleTruck = () => {
+    setData({
+      ...data,
+      isTruck:true,
+      isLuxeCar:false,
+      isSportsCar:false,
+      isFamilyCar:false,
+      isNormalCar: false,
+    });
   };
 
   return (
@@ -23,7 +68,7 @@ const CarTypeForm = () => {
       </div>
       <div className='options-container'>
         <Link to="select-engine">
-          <button>
+          <button onClick={handleNormalCar} >
             Regular <FontAwesomeIcon icon={faCar} />
           </button>
         </Link>
@@ -33,11 +78,11 @@ const CarTypeForm = () => {
           </button>
         </Link>
         <Link to="select-engine">
-          <button className=''>
+          <button className='' onClick={handleLuxeCar}>
             Luxurious <FontAwesomeIcon icon={faDollarSign} />
           </button>
         </Link>
-        <Link to="select-engine">
+        <Link to="select-engine" onClick={handleTruck}>
           <button>
             Truck <FontAwesomeIcon icon={faTruckPickup} />
           </button>
