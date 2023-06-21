@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faHouse, faCaretLeft, faCaretRight, faPalette } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { CarColorNormal, colorMapNormal, CarColorSports, colorMapSports } from '../models';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { CarsContext } from '../CarsContext';
 
 const NormalCarColor = {
@@ -16,7 +16,13 @@ const CarColorForm = () => {
     const { data, setData } = useContext(CarsContext);
     const isFamilyCar = data?.isFamilyCar;
     const isSportsCar = data?.isSportsCar;
+    const isNormalCar = data?.isNormalCar;
+    const [selectedColor, setSelectedColor] = useState<string | null>(null);
 
+    const handleChange = (color: string) => {
+        setSelectedColor(color);
+    }
+  
     return (
         <div>
             <div className='engine-type'>
@@ -37,27 +43,47 @@ const CarColorForm = () => {
             </div>
             <div>
                 <h1 className='title'><FontAwesomeIcon icon={faPalette} /> Color</h1>
-                {isFamilyCar ? (
+                { 
+                
+                isNormalCar ? (
+                    <div>
+                     {Object.values(CarColorNormal).map((color: CarColorNormal) => {
+                            const colorInfo = NormalCarColor.carColor[color];
+                            return (
+                                <div className='input-colors' key={color}>
+                                    <h3
+                                      className={selectedColor === color ? 'selected-color' : ''}
+                                      onClick={() => handleChange(color)}
+                                    style={{ backgroundColor: colorInfo.hex, color: colorInfo.color }} >{colorInfo.name}</h3>
+                                </div>
+                            );
+                        })}
+                    </div>
+                ) : 
+                isFamilyCar ? (
                     <div>
                         {Object.values(CarColorNormal).map((color: CarColorNormal) => {
                             const colorInfo = NormalCarColor.carColor[color];
                             return (
                                 <div className='input-colors' key={color}>
-                                    <h3 style={{ backgroundColor: colorInfo.hex, color: colorInfo.color }} className='text-white'>{colorInfo.name}</h3>
+                                    <h3 
+                                    className={selectedColor === color ? 'selected-color' : ''}
+                                    onClick={() => handleChange(color)}
+                                    style={{ backgroundColor: colorInfo.hex, color: colorInfo.color }}>{colorInfo.name}</h3>
                                 </div>
                             );
                         })}
                     </div>
-                ) : (""
-
-                )}
-                {isSportsCar ? (
+                ) : isSportsCar ? (
                     <div>
                         {Object.values(CarColorSports).map((color: CarColorSports) => {
                             const colorInfo = SportsCarColor.carColor[color];
                             return (
                                 <div className='input-colors' key={color}>
-                                    <h3 style={{ backgroundColor: colorInfo.hex, color: colorInfo.color }} className='text-white'>{colorInfo.name}</h3>
+                                    <h3 
+                                    className={selectedColor === color ? 'selected-color' : ''}
+                                    onClick={() => handleChange(color)}
+                                    style={{ backgroundColor: colorInfo.hex, color: colorInfo.color }}>{colorInfo.name}</h3>
                                 </div>
                             );
                         })}

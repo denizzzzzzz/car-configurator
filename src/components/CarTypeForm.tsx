@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCar, faDollarSign, faFlagCheckered, faPeopleRoof, faTruckPickup } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { CarsContext } from '../CarsContext';
 import { useContext } from 'react';
@@ -66,30 +64,36 @@ const CarTypeForm = () => {
       <div className='header'>
         <h1>CONFIGURE YOUR<span className='text-[#00a8e8]'> DREAM</span>  CAR</h1>
       </div>
+   
       <div className='options-container'>
         <Link to="select-engine">
           <button onClick={handleNormalCar} >
-            Regular <FontAwesomeIcon icon={faCar} />
+            Regular 
+            <img src={require('../img/NormalCar.jpg')} alt="" />
           </button>
         </Link>
         <Link to="select-engine">
           <button onClick={handleSportsCar}>
-            Sports <FontAwesomeIcon icon={faFlagCheckered} />
+            Sports 
+            <img src={require('../img/Sports-car.jpg')} alt="" />
           </button>
         </Link>
         <Link to="select-engine">
           <button className='' onClick={handleLuxeCar}>
-            Luxurious <FontAwesomeIcon icon={faDollarSign} />
+            Luxurious
+            <img src={require('../img/Luxe-car.webp')} alt="" />
           </button>
         </Link>
         <Link to="select-engine" onClick={handleTruck}>
           <button>
-            Truck <FontAwesomeIcon icon={faTruckPickup} />
+            Truck
+            <img src={require('../img/Truck.jpg')} alt="" />
           </button>
         </Link>
         <Link to="select-engine">
           <button onClick={handleFamilyCar}>
-            Family <FontAwesomeIcon icon={faPeopleRoof} />
+            Family
+            <img src={require('../img/Fam-car.jpeg')} alt="" />
           </button>
         </Link>
       </div>

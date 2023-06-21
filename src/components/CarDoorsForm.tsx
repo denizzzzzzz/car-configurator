@@ -34,34 +34,22 @@ export const CarDoorsForm = () => {
                         <h3>Gulwing Doors</h3>
                     </div>
                 </div>
-                <h1>Do you want anylocks? <FontAwesomeIcon icon={faLock} /></h1>
+                <h1>Do you want locks? <FontAwesomeIcon icon={faLock} /></h1>
                 <div className='engine-options'>
                     <div className='input'>
-                        <h3>Front left door</h3>
+                        <h3>Yes</h3>
                     </div>
                     <div className='input'>
-                        <h3>Front right door</h3>
-                    </div>
-                    <div className='input'>
-                        <h3>Back left door</h3>
-                    </div>
-                    <div className='input'>
-                        <h3>Back right door</h3>
+                        <h3>No</h3>
                     </div>
                 </div>
                 <h1><FontAwesomeIcon icon={faPlus} /> Do you want special features?</h1>
                 <div className='engine-options'>
                     <div className='input'>
-                        <h3>Front left door</h3>
+                        <h3>Abstruction sensor</h3>
                     </div>
                     <div className='input'>
-                        <h3>Front right door</h3>
-                    </div>
-                    <div className='input'>
-                        <h3>Back left door</h3>
-                    </div>
-                    <div className='input'>
-                        <h3>Back right door</h3>
+                        <h3>Automatic opening</h3>
                     </div>
                 </div>
                 <div>

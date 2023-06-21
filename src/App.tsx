@@ -1,8 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CarEngineForm from './components/CarEngineForm';
-import CarTypeForm from './components/CarTypeForm';
 import { CarsContext } from './CarsContext';
-import { AbstractCar } from './models';
+import { NormalCar } from './models';
 import { useState } from 'react';
 import './App.css';
 import CarColorForm from './components/CarColorForm';
@@ -12,9 +11,10 @@ import CarTireForm from './components/CarTireForm';
 import CarRimsForm from './components/CarRimsForm';
 import CarExtraFeaturesForm from './components/CarExtraFeaturesForm';
 import Car from './components/Car';
+import CarTypeForm from './components/CarTypeForm';
 
 interface ContextType {
-  car?: AbstractCar;
+  car?: NormalCar;
 }
 function App() {
 

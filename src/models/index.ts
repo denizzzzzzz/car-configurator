@@ -1,8 +1,21 @@
-export enum EngineTypes {
-    diesel = "Diesel",
+export enum NormalEngines {
     petrol = "Petrol",
-    electric = "Electric",
-    hybric ="Hyrbrid",
+    hybrid = "Hybrid",
+}
+export enum SportsEngines {
+    petrol = "Petrol",
+    hybrid = "Hybrid",
+    diesel = "Diesel",
+}
+export enum GenericEngines {
+    petrol = "Petrol",
+    hybrid = "Hybrid",
+    diesel = "Diesel",
+    electric = "Electric"
+}
+
+export abstract class NormalCar {
+    public abstract engineType: NormalEngines;
 }
 export interface ColorInfo {
     name: string;
@@ -37,10 +50,7 @@ export interface ColorInfo {
     [CarColorSports.Blue]: { name: "Blue", hex: "Blue", color:"white" },
 }
   
-export abstract class AbstractEngine {
-    public abstract displacement: number;
-    public abstract engineType: EngineTypes;
-}
+
 
     // public abstract revEngine(): void;
 
@@ -105,27 +115,27 @@ export class FamilyCarDoor extends AbstractDoor {
 export abstract class AbstractWindow {}
 
 
-export abstract class AbstractCar {
-    public abstract getEngine(): AbstractEngine|null;
-    public abstract setEngine(engine: AbstractEngine): void;
-    public abstract changeEngine(engine: AbstractEngine): void;
-}
+// export abstract class AbstractCar {
+//     public abstract getEngine(): AbstractEngine|null;
+//     public abstract setEngine(engine: AbstractEngine): void;
+//     public abstract changeEngine(engine: AbstractEngine): void;
+// }
 
 
-export class FamilyCar extends AbstractCar {
-    private engine: AbstractEngine|null = null;
-    private doors: FamilyCarDoor[] = [];
+// export class FamilyCar extends AbstractCar {
+//     private engine: AbstractEngine|null = null;
+//     private doors: FamilyCarDoor[] = [];
 
-    public setEngine(engine: AbstractEngine): void {
-        this.engine = engine;
-    }
-    public getEngine(): AbstractEngine|null {
-        return this.engine;
-    }
-    public changeEngine(engine: AbstractEngine): void {
-        this.engine = engine;
-    }
-}
+//     public setEngine(engine: AbstractEngine): void {
+//         this.engine = engine;
+//     }
+//     public getEngine(): AbstractEngine|null {
+//         return this.engine;
+//     }
+//     public changeEngine(engine: AbstractEngine): void {
+//         this.engine = engine;
+//     }
+// }
 // export const instance = new FamilyCar(new DieselEngine(2000), [new FamilyCarDoor("red"), new FamilyCarDoor("red"), new FamilyCarDoor("red") ,new FamilyCarDoor("red"), new FamilyCarDoor("red")]);
 // instance.getEngine().revEngine();
 
