@@ -97,8 +97,9 @@ h1{
   font-size: 28px;
 }
 .selected-color{
-  border-left: solid 20px white;
-  border-right: solid 20px white;
+  margin: 2px;
+  font-weight: bold;
+  border-top: solid 4px white;
 }
 .input-colors h3{
   padding: 16px;
@@ -130,5 +131,6 @@ img{
 .selected{
   background-color: black;
   color: white;
+  border-top: solid 4px white;
 }
 

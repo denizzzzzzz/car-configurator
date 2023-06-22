@@ -17,6 +17,8 @@ const CarColorForm = () => {
     const isFamilyCar = data?.isFamilyCar;
     const isSportsCar = data?.isSportsCar;
     const isNormalCar = data?.isNormalCar;
+    const isLuxeCar = data?.isLuxeCar;
+    const isTruck = data?.isTruck;
     const [selectedColor, setSelectedColor] = useState<string | null>(null);
 
     const handleChange = (color: string) => {
@@ -88,9 +90,38 @@ const CarColorForm = () => {
                             );
                         })}
                     </div>
-                ) : (""
-
-                )}
+                ) :
+                isLuxeCar ? (
+                    <div>
+                        {Object.values(CarColorSports).map((color: CarColorSports) => {
+                            const colorInfo = SportsCarColor.carColor[color];
+                            return (
+                                <div className='input-colors' key={color}>
+                                    <h3 
+                                    className={selectedColor === color ? 'selected-color' : ''}
+                                    onClick={() => handleChange(color)}
+                                    style={{ backgroundColor: colorInfo.hex, color: colorInfo.color }}>{colorInfo.name}</h3>
+                                </div>
+                            );
+                        })}
+                    </div>
+                ) : isTruck ? (
+                    <div>
+                        {Object.values(CarColorNormal).map((color: CarColorNormal) => {
+                            const colorInfo = NormalCarColor.carColor[color];
+                            return (
+                                <div className='input-colors' key={color}>
+                                    <h3 
+                                    className={selectedColor === color ? 'selected-color' : ''}
+                                    onClick={() => handleChange(color)}
+                                    style={{ backgroundColor: colorInfo.hex, color: colorInfo.color }}>{colorInfo.name}</h3>
+                                </div>
+                            );
+                        })}
+                    </div>
+                ) :
+                 null
+                }
                 <div>
                     <Link to="/select-engine"><button className='navButton'><FontAwesomeIcon icon={faCaretLeft} /></button></Link>
                     <Link to="/select-doors"><button className='navButton'><FontAwesomeIcon icon={faCaretRight} /></button></Link>

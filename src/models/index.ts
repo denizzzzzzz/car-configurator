@@ -13,7 +13,6 @@ export enum GenericEngines {
     diesel = "Diesel",
     electric = "Electric"
 }
-
 export abstract class NormalCar {
     public abstract engineType: NormalEngines;
 }
@@ -50,8 +49,29 @@ export interface ColorInfo {
     [CarColorSports.Blue]: { name: "Blue", hex: "Blue", color:"white" },
 }
   
+export enum SportsDoorTypes {
+    Normaldoor ="Normal door",
+    Scissordoor ="Scissor door",
+    Gulwigdoor ="Gulwig door",
+}
 
+export enum LuxeDoorTypes {
+    Normaldoor ="Normal door",
+    Suicidedoor ="Suicide door",
+}
 
+export enum NormalWindows {
+    Normal = "Normal windows",
+    Automatic = "Automatic windows"
+}
+export enum NormalTires {
+    Michelin ="Michelin",
+    Bridgestone ="Bridgestone"
+}
+export enum NormalRims{
+    Silver = "Silver",
+    Aluminium = "Alimunium"
+}
     // public abstract revEngine(): void;
 
 

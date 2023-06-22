@@ -55,18 +55,18 @@ export const CarEngineForm = () => {
               <div className=' engine-options'>
                 {Object.values(SportsEngines).map((engineType, index) => (
                   (<div>
-                  <div className='input' key={index}>
-                    <h3
-                      className={selectedEngine === engineType ? 'selected' : ''}
-                      onClick={() => handleChange(engineType)}
-                    >{engineType}</h3>
-                  </div>
+                    <div className='input' key={index}>
+                      <h3
+                        className={selectedEngine === engineType ? 'selected' : ''}
+                        onClick={() => handleChange(engineType)}
+                      >{engineType}</h3>
+                    </div>
                   </div>
                   )
                 ))}
                 <h3 className='input'>Sportsmode</h3>
               </div>
-              
+
             ) : isLuxeCar ? (
               <div className=' engine-options'>
                 {Object.values(GenericEngines).map((engineType, index) => (

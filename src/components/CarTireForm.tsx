@@ -1,8 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faHouse, faCaretLeft, faCaretRight, faCarRear } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { NormalTires } from '../models';
+import { useState } from 'react';
 
 export const CarTireForm = () => {
+    const [selectedTires, setSelectedTires] = useState<string | null>(null);
+    const handleChange = (tires: string) => {
+        setSelectedTires(tires);
+    }
     return (
         <div>
             <div className='engine-type'>
@@ -20,20 +26,19 @@ export const CarTireForm = () => {
                 </div>
               
                 <h1><FontAwesomeIcon icon={faCarRear} /> Tires</h1>
-                <div className='engine-options'>
-                    <div className='input'>
-                        <h3>Michellin</h3>
-                    </div>
-                    <div className='input'>
-                        <h3>Another Brand</h3>
-                    </div>
-                    <div className='input'>
-                        <h3>Some Brand</h3>
-                    </div>
-                    <div className='input'>
-                        <h3>I don't know</h3>
-                    </div>
-                </div>
+               
+
+            <div className='engine-options'>
+            {Object.values(NormalTires).map((tires, index) => (
+                        <div className='input' key={index}>
+                            <h3
+                                className={selectedTires === tires ? 'selected' : ''}
+                                onClick={() => handleChange(tires)}
+                            >{tires}</h3>
+                        </div>
+                    ))}
+            </div>
+               
                 <div>
                     <Link to="/select-windows"><button className='navButton'><FontAwesomeIcon icon={faCaretLeft} /></button></Link>
                     <Link to="/select-rims"><button className='navButton'><FontAwesomeIcon icon={faCaretRight} /></button></Link>
